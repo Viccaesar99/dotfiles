@@ -1,0 +1,42 @@
+[global]
+
+    monitor = 0
+    width = 300
+    height = (70, 100)
+    origin = top-center
+    offset = (0,10)
+
+    notification_limit = 5
+
+    progress_bar = false
+
+    font = FeraCode Nerd Font 10
+
+    max_icon_size = 48
+
+    corner_radius = 10
+
+    frame_width = 0
+
+    alignment = left
+
+    format = "<b>%s</b>\n<i>%b</i>"
+
+    mouse_left_click = do_action,close_current #close_current is optional
+
+[urgency_low]
+    background = "#13151e"
+    foreground = "#ececec"
+    timeout = 5
+
+[urgency_normal]
+    background = "#13151e"
+    foreground = "#ececec"
+
+    timeout = 5
+
+[urgency_critical]
+    background = "#13151e"
+    foreground = "#ececec"
+
+    timeout = 0

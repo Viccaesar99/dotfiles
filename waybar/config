@@ -1,0 +1,127 @@
+{
+	"layer": "top",
+	"height": 38,
+	"spacing": 0,
+    "margin-top": 10,
+    "margin-left": 20,
+    "margin-right": 20,
+
+	// Modules layout
+	"modules-left":["custom/menu", "hyprland/workspaces", "tray", "hyprland/window"],
+	"modules-center":["clock", "pulseaudio", "mpris"],
+	"modules-right": ["custom/updates", "disk", "memory", "cpu", "hyprland/language","network","battery", "custom/power"],
+
+	// Modules configuration
+    "hyprland/language": {
+        "format":" 󰌌    {}",
+
+
+    },
+	"clock": {
+		"format": "{:%a  %b  %d  %H:%M %p}",
+		"tooltip": true,
+		"tooltip-format":"{:%d - %m - %Y}"
+		
+
+	},
+	"battery": {
+		"interval": 1,
+		"format": "{icon}",
+		"format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
+        "tooltip": true,
+        "tooltip-format": "{capacity}%",
+		
+	},
+	"pulseaudio": {
+		"format": "{icon}  {volume}%",
+		"format-bluetooth":"    {volume}%", 
+		"tooltip": false,
+		"format-muted": " ",
+		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format-icons": {
+			"default": [" ", "  "],
+
+		}
+	},
+	"network": {
+		"interval": 1,
+		"interface": "wlan0",
+		"format-wifi": "{icon}",
+		"format-disconnected":"󰤭 ",
+		"format-icons": ["󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+		"tooltip": true,
+		"tooltip-format": "{essid}\nSubida: {bandwidthUpBytes}\nBajada: {bandwidthDownBytes}",
+        "on-click": "~/.config/hypr/scripts/wifi-toggle.sh",
+		
+	},
+	"hyprland/workspaces":{
+		"disable-scroll": true,
+		"format": "{icon}",
+		"tooltip": false,
+		"format-icons": {
+		"default":"○", 
+		"active":"●",
+		}
+	},
+	"hyprland/window": {
+		"format": "   {initialTitle}",
+	},
+	"cpu": {
+		"interval": 1,
+		"format": "   {usage}%",
+
+	},
+	"memory": {
+		"interval": 1,
+		"format": "    {percentage}%",
+		"tooltip-format": "{used}Gb / {total}Gb", 
+		
+
+	},
+	"disk": {
+		"interval": 10,
+		"format": "  {percentage_used}%",
+		"tooltip-format": "{used} / {total}",
+		
+
+	},
+	"tray": {
+		"icon-size": 21,
+		"spacing": 10,
+	},
+    "custom/power": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "/home/victo/.config/hypr/scripts/power-menu.sh"
+    },
+    "custom/menu": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "rofi -show drun"
+    },
+    "custom/updates": {
+        "format": "   {}",
+        "return-type": "json",
+        "exec": "/home/victo/.config/hypr/scripts/updates.sh",
+        "interval": 10,
+        "tooltip": false,
+        "on-click": "kitty -e sudo pacman -Syu"
+
+    },
+    "mpris": {
+	    "format": "{title} - {artist}  {player_icon}",
+	    "format-paused": "<i>{title} - {artist}</i>  {status_icon}",
+	    "player-icons": {
+		    "default": " ",
+		    "mpv": "🎵",
+            "spotify": " "
+	    },
+        "interval": 1,
+	    "status-icons": {
+		    "paused": "⏸"
+	    },
+	    "ignored-players": ["firefox"]
+    }
+
+
+}
