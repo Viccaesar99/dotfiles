@@ -12,6 +12,7 @@
 - Htop: listar los procesos y ver consumo del sistema
 - Fuente: FiraCode Nerd Fonts
 - Rofi: Menu
+- Kitty: Emulador de terminal
 
 ## Screenshots
 
